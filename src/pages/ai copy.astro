@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="ai">
+  <main>
+    <h1>AI</h1>
+    <input type="text" id="input" />
+    <button id="submit">Submit</button>
+    <p>Here's some ChatGPT generated text:</p>
+
+    <p id="generated-text">...</p>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+</style>
+
+<script>
+  const button = document.getElementById("submit");
+  const text = document.getElementById("generated-text");
+
+  button.addEventListener("click", async () => {
+    const input = document.getElementById("input");
+    const inputValue = input.value;
+    console.log(inputValue);
+    const res = await fetch(
+      `http://localhost:3000/api/generate?input=${inputValue}`
+    );
+    const output = await res.json();
+    text.innerText = output.choices[0].text;
+  });
+</script>

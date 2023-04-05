@@ -1,0 +1,20 @@
+{
+  "name": "chatgpt-demo",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^2.2.0",
+    "astro": "^2.1.9",
+    "chatgpt": "^5.2.2",
+    "eventsource-parser": "^1.0.0",
+    "openai": "^3.2.1"
+  }
+}
